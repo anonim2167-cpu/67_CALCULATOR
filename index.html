@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Mikołaj Arendarczyk, 1GP">
@@ -9,20 +8,6 @@
     
     <style>
 
-      img, video, iframe {
-        max-width: 100%;
-        height: auto;
-      }
-    
-      body, div, section {
-        box-sizing: border-box;
-      }
-    
-      @media (max-width: 600px) {
-        body {
-          padding: 10px;
-        }
-        
         button
         {
             font-family:Georgia, 'Times New Roman', Times, serif;
@@ -293,17 +278,25 @@
         
 
             Delete.addEventListener("click", function(){
-            let liczbaDEL = [];
+                let liczbaOBECNA;
+                if(dodnot == 1){
+                    liczbaOBECNA = liczba2;
+                }else{
+                    liczbaOBECNA = liczba1;
+                }
 
-            if(dodnot == 1){
-                liczbaDEL = liczba2;
-            }else{
-                liczbaDEL = liczba1;
-            }
-            
-            liczbaDEL.split("");
-            liczbaDEL.shift();
-            console.log(liczbaDEL);
+                let liczbTAB = liczbaOBECNA.split("");
+                liczbTAB.pop();
+                LtabJoin = liczbTAB.join("");
+                console.log(LtabJoin);
+
+                if(dodnot == 1){
+                    liczba2 = LtabJoin;
+                    ek.innerHTML = liczba2;
+                }else{
+                    liczba1 = LtabJoin;
+                    ek.innerHTML = liczba1;
+                }
         });
 
 
@@ -344,22 +337,22 @@
             let P1 = parseFloat(liczba1);
             let P2 = parseFloat(liczba2);
             
-            if(wlasciwosc == 1 && jestWynik == 0){
+            if(wlasciwosc == 1 && jestWynik == 0 && liczba1 != ""){
                 wynikP = P1 + P2;
                 
                 liczba1 = "";
                 liczba2 = "";
-            }else if(wlasciwosc == 2 && jestWynik == 0){
+            }else if(wlasciwosc == 2 && jestWynik == 0 && liczba1 != ""){
                 wynikP = P1 - P2;
                 
                 liczba1 = "";
                 liczba2 = "";
-            }else if(wlasciwosc == 3 && jestWynik == 0){
+            }else if(wlasciwosc == 3 && jestWynik == 0 && liczba1 != ""){
                 wynikP = P1 / P2;
                 
                 liczba1 = "";
                 liczba2 = "";
-            }else if(wlasciwosc == 4 && jestWynik == 0){
+            }else if(wlasciwosc == 4 && jestWynik == 0 && liczba1 != ""){
                 wynikP = P1 * P2;
 
                 liczba1 = "";
@@ -389,6 +382,4 @@
 
     </script>
 </body>
-
 </html>
-
